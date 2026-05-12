@@ -1114,5 +1114,5 @@ window.addEventListener('load',() =>{
     setInterval(() =>{
         loadOrders();
         loadNotifications();
-    },10000);
+    }, 5000);
 })

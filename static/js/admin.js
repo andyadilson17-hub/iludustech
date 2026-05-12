@@ -280,6 +280,9 @@ progressOptions.forEach(option => {
         .then(data =>{
 
             if (data.status === "sucesso"){
+
+                 progressPopup.classList.add('hidden');
+
                 showToast(
                     'Progresso atualizado com sucesso'
                 );
