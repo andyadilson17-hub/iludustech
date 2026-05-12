@@ -22,7 +22,7 @@ def create_order(user_id, service, description):
 
         # 🔥 2. Inserir pedido corretamente
         cur.execute ("""
-            INSERT INTO pedido 
+            INSERT INTO Pedido 
             (DataPedido, Descricao, Estado, Etapa, Progresso, TipoPedido, fk_Cliente_id_Cliente)
             VALUES (%s, %s, %s, %s, %s, %s, %s)
         """, (
@@ -85,7 +85,7 @@ def get_orders(user_id):
                 Progresso,
                 TipoPedido,
                 DataPedido
-            FROM pedido
+            FROM Pedido
             WHERE fk_Cliente_id_Cliente = %s
             ORDER BY DataPedido DESC
         """, (cliente_id,))
@@ -122,7 +122,7 @@ def get_all_orders():
                 p.Estado,
                 p.Etapa,
                 p.Progresso
-            FROM pedido p
+            FROM Pedido p
 
             JOIN cliente c
                 ON p.fk_Cliente_id_Cliente = c.id_Cliente
@@ -196,9 +196,9 @@ def update_order(order_id, etapa):
         # =========================
 
 
-        cur.execute ("""
+        cur.execute("""
             SELECT fk_Cliente_id_Cliente
-            FROM pedido
+            FROM Pedido
             WHERE id_Pedido = %s
         """, (order_id,))
 
@@ -208,7 +208,7 @@ def update_order(order_id, etapa):
 
         cur.execute("""
             
-            UPDATE pedido
+            UPDATE Pedido
 
             SET
                 Etapa = %s,

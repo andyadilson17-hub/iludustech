@@ -32,7 +32,7 @@ def notifications_api():
 def get_orders_api():
     return list_orders()
 
-@app.route("/")
+@app.route("/login")
 def login_page():
     return render_template("login.html")
 
@@ -61,6 +61,10 @@ def verify_api():
     return verify()
 
 @app.route("/landing")
+def landing_page():
+    return render_template("landing.html")
+
+@app.route("/")
 def landing_page():
     return render_template("landing.html")
 
