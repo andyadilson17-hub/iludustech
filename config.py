@@ -4,4 +4,4 @@ class Config:
     MYSQL_USER = 'root'
     MYSQL_PASSWORD = 'MRnTzTcAnMNPlRJOmLKmmypdDkibwOPw'
     MYSQL_DB = 'railway'
-    MYSQL_PORT = '59054'
+    MYSQL_PORT = 59054
