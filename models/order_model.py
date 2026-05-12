@@ -22,7 +22,7 @@ def create_order(user_id, service, description):
 
         # 🔥 2. Inserir pedido corretamente
         cur.execute ("""
-            INSERT INTO Pedido 
+            INSERT INTO pedido 
             (DataPedido, Descricao, Estado, Etapa, Progresso, TipoPedido, fk_Cliente_id_Cliente)
             VALUES (%s, %s, %s, %s, %s, %s, %s)
         """, (
