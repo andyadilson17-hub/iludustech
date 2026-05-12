@@ -932,7 +932,7 @@ function startNotificationPolling(){
             );
         }
 
-    }, 5000);
+    }, 30000);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -1099,7 +1099,7 @@ confirmLogout.addEventListener("click", () => {
 // MOBILE MENU
 // =========================
 
-// atualizado
+// atualizado notification
 mobileMenuBtn.addEventListener("click", () => {
 
     sidebar.classList.toggle("sidebar-open");
