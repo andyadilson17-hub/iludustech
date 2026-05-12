@@ -64,9 +64,6 @@ def verify_page():
 def verify_api():
     return verify()
 
-@app.route("/landing")
-def landing_page():
-    return render_template("landing.html")
 
 @app.route("/cliente")
 def cliente_page():
