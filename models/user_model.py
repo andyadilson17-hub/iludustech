@@ -148,8 +148,11 @@ def resend_code(email):
 
         # enviar novo email
         from utils.email_service import send_verification_email
-        send_verification_email(email, code)
+        email_sent = send_verification_email(email, code)
 
+        if not email_sent:
+            print("falha no envio do emeil")
+            
         return "sucesso"
 
     except Exception as e:

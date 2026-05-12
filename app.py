@@ -12,8 +12,14 @@ app.config.from_object(Config)
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USE_SSL'] = False
 app.config['MAIL_USERNAME'] = 'iludustech@gmail.com'
 app.config['MAIL_PASSWORD'] = 'duwa sgrl auwv bpzl'  # ⚠️ não é senha normal
+app.config['MAIL_DEFAULT_SENDER'] = 'iludustech@gmail.com'
+app.config['MAIL_MAX_EMAILS'] = None
+app.config['MAIL_SUPPRESS_SEND'] = False
+app.config['MAIL_ASCII_ATTACHMENTS'] = False
+app.config['MAIL_TIMEOUT'] = 10
 
 mysql.init_app(app)
 mail.init_app(app)
