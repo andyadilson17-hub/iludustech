@@ -2,6 +2,8 @@
 // ELEMENTOS
 // =========================
 
+const toastContainer = document.getElementById('toastContainer');
+const logoutBtn = document.getElementById('logouBtn');
 const navItems = document.querySelectorAll('.nav-item');
 const tabs = document.querySelectorAll('.tab-content');
 
@@ -104,7 +106,7 @@ function renderOrders(){
 
             <td class="actions-cell">
 
-                <button class="btn-update-progress" data-id = ${order.id})">
+                <button class="btn-update-progress" data-id = "${order.id}">
                     Atualizar
                 </button>
 
