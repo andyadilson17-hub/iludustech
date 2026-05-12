@@ -2,7 +2,7 @@ from flask import Flask, render_template
 from config import Config
 from models.user_model import mysql
 from controllers.auth_controller import register, verify, resend, login, admin_login
-from extensions import mysql, mail
+from extensions import mysql
 from controllers.order_controller import create, list_orders, admin_orders, update
 from controllers.notification_controller import list_notifications,read_notification
 
@@ -22,7 +22,7 @@ app.config['MAIL_ASCII_ATTACHMENTS'] = False
 app.config['MAIL_TIMEOUT'] = 10
 
 mysql.init_app(app)
-mail.init_app(app)
+
 
 # Rotas de páginas
 

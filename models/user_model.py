@@ -75,7 +75,10 @@ def create_user(name, email, password, tipo):
         cur.close()
         
         # enviar email
-        send_verification_email(email, code)
+        try:
+            send_verification_email(email, code)
+        except Exception as e:
+            print(e)
 
 
         return {"status": "sucesso", "code": code}

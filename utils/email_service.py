@@ -1,17 +1,22 @@
-from flask_mail import Message
-from extensions import mail
+import smtplib
+import os
+
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
 def send_verification_email(email, code):
-    try:
-        msg = Message(
-            subject="Seu código de verificação - Iludus Tech",
-            sender=("Iludus Tech", "iludustech@gmail.com"),
-            recipients=[email]
-        )
 
-        msg.html = f"""
+    try:
+
+        sender_email = os.getenv("MAIL_USERNAME")
+        sender_password = os.getenv("MAIL_PASSWORD")
+
+        subject = "Seu código de verificação - Iludus Tech"
+
+        html = f"""
         <div style="font-family: Arial; text-align:center;">
             <h2 style="color:#4f46e5;">Iludus Tech</h2>
+
             <p>Seu código de verificação:</p>
 
             <div style="
@@ -32,10 +37,35 @@ def send_verification_email(email, code):
         </div>
         """
 
-        mail.send(msg)
-        print("Email enviado com sucesso:")
+        msg = MIMEMultipart()
+
+        msg["From"] = sender_email
+        msg["To"] = email
+        msg["Subject"] = subject
+
+        msg.attach(MIMEText(html, "html"))
+
+        server = smtplib.SMTP("smtp.gmail.com", 587, timeout=10)
+
+        server.starttls()
+
+        server.login(sender_email, sender_password)
+
+        server.sendmail(
+            sender_email,
+            email,
+            msg.as_string()
+        )
+
+        server.quit()
+
+        print("EMAIL ENVIADO COM SUCESSO")
+
         return True
 
     except Exception as e:
-        print("ERRO AO ENVIAR EMAIL:", e)
+
+        print("ERRO AO ENVIAR EMAIL:")
+        print(str(e))
+
         return False
