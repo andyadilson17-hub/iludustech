@@ -274,17 +274,19 @@ progressOptions.forEach(option => {
 
             })
 
+        })
+
+        .then(res => res.json())
+        .then(data =>{
+
+            if (data.status === "sucesso"){
+                showToast(
+                    'Progresso atualizado com sucesso'
+                );
+
+                loadOrders();
+            }
         });
-
-
-        progressPopup.classList.add('hidden');
-
-        showToast(
-            'Progresso atualizado com sucesso'
-        );
-
-        loadOrders();
-
     });
 
 });

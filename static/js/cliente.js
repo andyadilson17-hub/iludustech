@@ -863,7 +863,7 @@ function playNotificationSound(){
 // atualizado
 let notificationsInitialized = false;
 
-// atualizado
+// atualizado window.addEventListener
 function startNotificationPolling(){
 
     setInterval(async () => {
@@ -1105,3 +1105,14 @@ mobileMenuBtn.addEventListener("click", () => {
     sidebar.classList.toggle("sidebar-open");
 
 });
+
+window.addEventListener('load',() =>{
+
+    loadOrders();
+    loadNotifications();
+
+    setInterval(() =>{
+        loadOrders();
+        loadNotifications();
+    },10000);
+})
