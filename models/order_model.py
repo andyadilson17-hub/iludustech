@@ -53,10 +53,6 @@ def create_order(user_id, service, description):
         traceback.print_exc()
         return {"status": "erro"}
 
-    except Exception as e:
-        print("ERRO CREATE ORDER:", e)
-        print("ID DO USER: ",user_id)
-        return {"status": "erro"}
     
 def get_orders(user_id):
     try:
@@ -242,8 +238,7 @@ def update_order(order_id, etapa):
             cliente_id,
             "Pedido Atualizado",
             mensagem,
-            tipo,
-            order_id
+            tipo
         )
 
 
