@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify - DevSolutions</title>
+    <link rel="stylesheet" href="static/css/auth.css">
+</head>
+<body class= "register-page">
+    <div class="auth-container">
+        <div class="auth-box">
+           <form id="verifyForm">
+              <div class="form-group">
+                  <label>Código de Verificação</label>
+                  <input type="text" id="code" placeholder="Digite o código">
+              </div>
+
+              <button type="submit" class="btn btn-primary">
+                  Verificar
+              </button>
+
+              <button type="button" onclick="resendCode()">
+                Reenviar código
+              </button>
+          </form> 
+        </div>
+    </div>
+    <script>
+
+      function showPopup(msg){
+          const popup = document.getElementById("popup");
+          document.getElementById("popupMessage").innerText = msg;
+
+          popup.classList.remove("hidden");
+
+            // 🔒 BLOQUEAR SCROLL
+          document.body.style.overflow = "hidden";
+      }
+
+      function closePopup(){
+          const popup = document.getElementById("popup");
+
+          popup.classList.add("hidden");
+
+            // 🔓 LIBERAR SCROLL
+          document.body.style.overflow = "auto";
+      }
+
+      document.getElementById("verifyForm").addEventListener("submit", function(e){
+        e.preventDefault();
+
+        const code = document.getElementById("code").value;
+        const email = localStorage.getItem("email_verify");
+
+        fetch("/api/verify", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ email, code })
+        })
+        .then(res => res.json())
+        .then(data => {
+
+            if(data.status === "sucesso"){
+                showPopup("Conta verificada!");
+                
+                setTimeout(()=>{
+                    window.location.href = "/cliente";
+                },1500);
+
+            }else if(data.status === "codigo_invalido"){
+                showPopup("Código inválido");
+
+            }else if(data.status === "expirado"){
+                showPopup("Código expirado");
+
+            }else{
+                showPopup("Erro na verificação");
+            }
+        });
+      });
+
+
+      function resendCode(){
+        const email = localStorage.getItem("email_verify");
+
+        if(!email){
+            showPopup("Erro: email não encontrado");
+            return;
+        }
+
+        fetch("/api/resend", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ email })
+        })
+        .then(res => res.json())
+        .then(data => {
+
+            if(data.status === "sucesso"){
+                showPopup("Novo código enviado!");
+
+            }else{
+                showPopup("Erro ao reenviar código");
+            }
+        })
+        .catch(err => {
+            console.error(err);
+            showPopup("Erro de conexão");
+        });
+      }
+    </script>
+    <div id="popup" class="popup hidden">
+        <div class="popup-content">
+            <p id="popupMessage"></p>
+            <button onclick="closePopup()">OK</button>
+        </div>
+    </div>
+    <script src="static/js/auth.js"></script>
+</body>
+</html>

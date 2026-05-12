@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Cliente - DevSolutions</title>
+    <link rel="stylesheet" href="static/css/cliente.css">
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <!-- atualizado -->
+    <button class="mobile-menu-btn" id="mobileMenuBtn">
+
+        <i class="fa-solid fa-bars"></i>
+
+    </button>
+
+     <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="user-info">
+                <!-- atualizado -->
+                <div class="sidebar-top">
+
+                    <div class="company-logo">
+
+                        <div class="logo-icon">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+
+                        <div>
+                            <h2>Iludus Tech</h2>
+                            <span>Client Panel</span>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            
+            <button class="btn-logout" id="logoutBtn">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                </svg>
+                Sair
+            </button>
+        </div>
+    </header>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-header">
+            <h2>DevSolutions</h2>
+        </div>
+
+        <nav class="sidebar-nav">
+           <button class="nav-item active" data-target="home">
+                <i class='bx bx-home-alt'></i>
+                <span>Início</span>
+            </button>
+
+            <button class="nav-item" data-target="orders">
+                <i class='bx bx-folder'></i>
+                <span>Pedidos</span>
+            </button>
+
+            <button class="nav-item" data-target="notifications">
+                <i class='bx bx-bell'></i>
+                <span>Notificações</span>
+                <div id="notificationBadge" class="notification-badge hidden">
+                    0
+                </div>
+            </button>
+
+            <button class="nav-item" data-target="feedback">
+                <i class='bx bx-message-square-detail'></i>
+                <span>Feedback</span>
+            </button>
+
+            <button class="nav-item" data-target="about">
+                <i class='bx bx-info-circle'></i>
+                <span>Sobre</span>
+            </button>
+
+            <!-- atualizado -->
+            <div class="sidebar-user">
+
+                <div class="sidebar-user-avatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="sidebar-user-info">
+
+                    <h4 id="sidebarUserName">
+                        Usuário
+                    </h4>
+
+                    <span>
+                        Cliente
+                    </span>
+
+                </div>
+
+            </div>
+
+        </nav>
+    </aside>
+
+   
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+
+        <section class="page-section" id="homeSection">
+            
+           
+            <div id="dashboardContent">
+                <div class="page-header">
+                    <h2 class="page-title">Meus Pedidos</h2>
+                    <button class="btn-new-order" id="newOrderBtn">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                        Novo Pedido
+                    </button>
+                </div>
+
+                <!-- RESUMO -->
+                <div class="dashboard-stats">
+                    
+                    <div class="stat-card total-card">
+                        <div class="stat-icon blue">
+                            <i class="fa-solid fa-folder-open"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalOrders">0</h3>
+                            <p>Total de Pedidos</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card progress-card">
+                        <div class="stat-icon purple">
+                            <i class="fa-solid fa-spinner"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="inProgress">0</h3>
+                            <p>Em Andamento</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card completed-card">
+                        <div class="stat-icon green">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="completed">0</h3>
+                            <p>Concluídos</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card pending-card">
+                        <div class="stat-icon orange">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+
+                        <div class="stat-info">
+                            <h3 id="pending">0</h3>
+                            <p>Pendentes</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- PROGRESSO GERAL -->
+                <div class="global-progress">
+                    <p>Progresso Geral</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="globalProgress"></div>
+                    </div>
+                </div>
+
+                <!-- NOTIFICAÇÕES -->
+                <div class="dashboard-widget notifications-widget">
+
+                    <div class="widget-header">
+                        <div class="widget-title">
+                            <i class='bx bx-bell'></i>
+                            <h3>Notificações</h3>
+                        </div>
+
+                        <span class="widget-badge">Recentes</span>
+                    </div>
+
+                    <div id="notificationsList" class="widget-content"></div>
+
+                </div>
+
+                <!-- ATIVIDADES -->
+                <div class="dashboard-widget activity-widget">
+
+                    <div class="widget-header">
+                        <div class="widget-title">
+                            <i class='bx bx-pulse'></i>
+                            <h3>Últimas Atividades</h3>
+                        </div>
+
+                        <span class="widget-badge active-badge">
+                            Ao vivo
+                        </span>
+                    </div>
+
+                    <div id="activityList" class="widget-content"></div>
+
+                </div>
+            </div>    
+            <!-- Service Request Form -->
+            <div id="serviceForm" class="service-form hidden">
+                <div class="form-header">
+                    <h2 class="form-title">Criar Novo Pedido</h2>
+                    <button class="btn-close" id="closeFormBtn">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="form">
+                    <form id="orderForm">
+                        <p class="form-subtitle">
+                            <label>Escolha o tipo de serviço e descreva o que precisa</label>
+                            <div class="services-grid" id="servicesGrid"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Descrição do Projeto</label>
+                            <textarea id="descriptionInput" rows="4" placeholder="Descreva os detalhes do seu projeto..." required></textarea>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" id="cancelFormBtn">Cancelar</button>
+                            <button type="submit" class="btn btn-primary" id="submitOrderBtn" disabled>Criar Pedido</button>
+                        </div>
+                    </form>
+
+                </div>
+
+                
+            </div>
+
+            
+        </section>
+
+        <!-- PEDIDOS -->
+        <section id="ordersSection" class="page-section hidden">
+
+            <div class="page-header">
+                <h2 class="page-title">Meus Pedidos</h2>
+
+                <button class="btn-new-order" id="newOrderBtn">
+                    Novo Pedido
+                </button>
+            </div>
+            <!-- Orders List -->
+            <div id="ordersList"></div>
+        </section>
+
+        <section id="notificationsSection" class="page-section hidden">
+            
+                
+            <h2 class="page-title">Notificações</h2>
+            <div class="notifications-feed" id="fullnotificationsList"></div>
+        </section>
+
+        <section id="feedbackSection" class="page-section hidden">
+
+            <div class="feedback-header">
+
+                <div>
+                    <h2 class="page-title">
+                        <i class="fa-solid fa-star"></i>
+                        Feedback
+                    </h2>
+
+                    <p class="feedback-subtitle">
+                        Compartilhe sua experiência sobre nossos serviços
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="feedback-container">
+
+                <div class="feedback-card">
+
+                    <div class="feedback-top">
+
+                        <div class="feedback-icon">
+                            <i class="fa-solid fa-comments"></i>
+                        </div>
+
+                        <div>
+                            <h3>Como foi sua experiência?</h3>
+                            <p>
+                                Seu feedback ajuda a melhorar nossos serviços.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="rating-container">
+
+                        <button class="star-btn">
+                            <i class="fa-solid fa-star"></i>
+                        </button>
+
+                        <button class="star-btn">
+                            <i class="fa-solid fa-star"></i>
+                        </button>
+
+                        <button class="star-btn">
+                            <i class="fa-solid fa-star"></i>
+                        </button>
+
+                        <button class="star-btn">
+                            <i class="fa-solid fa-star"></i>
+                        </button>
+
+                        <button class="star-btn">
+                            <i class="fa-solid fa-star"></i>
+                        </button>
+
+                    </div>
+
+                    <div class="feedback-form">
+
+                        <textarea 
+                            placeholder="Descreva sua experiência..."
+                            class="feedback-textarea"
+                        ></textarea>
+
+                        <button class="feedback-submit">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            Enviar Feedback
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- atualizado -->
+        <section id="aboutSection" class="page-section hidden">
+
+            <h2 class="page-title">
+                <i class="fa-solid fa-circle-info"></i>
+                Sobre
+            </h2>
+
+            <div class="about-modern-card">
+
+                <div class="about-top">
+
+                    <div class="about-logo">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </div>
+
+                    <div>
+                        <h3>Iludus Tech</h3>
+
+                        <p>
+                            Plataforma profissional para gestão de pedidos,
+                            acompanhamento de projetos e comunicação entre
+                            cliente e administrador.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="about-divider"></div>
+
+                <div class="about-features">
+
+                    <div class="about-feature-card">
+                        <div class="feature-icon blue">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+
+                        <div>
+                            <h4>Desenvolvimento</h4>
+                            <p>Soluções modernas e escaláveis</p>
+                        </div>
+                    </div>
+
+                    <div class="about-feature-card">
+                        <div class="feature-icon green">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+
+                        <div>
+                            <h4>Segurança</h4>
+                            <p>Proteção e gestão segura dos dados</p>
+                        </div>
+                    </div>
+
+                    <div class="about-feature-card">
+                        <div class="feature-icon purple">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+
+                        <div>
+                            <h4>Performance</h4>
+                            <p>Atualizações rápidas em tempo real</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="about-stats-modern">
+
+                    <div class="modern-stat-card">
+                        <i class="fa-solid fa-folder-open"></i>
+                        <h3 id="aboutTotalOrders">11</h3>
+                        <p>Pedidos</p>
+                    </div>
+
+                    <div class="modern-stat-card">
+                        <i class="fa-solid fa-spinner"></i>
+                        <h3 id="aboutProgressOrders">4</h3>
+                        <p>Em andamento</p>
+                    </div>
+
+                    <div class="modern-stat-card">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <h3 id="aboutCompletedOrders">7</h3>
+                        <p>Concluídos</p>
+                    </div>
+
+                </div>
+
+
+                <!-- atualizado -->
+                <div class="project-card">
+
+                    <div class="project-header">
+                        <h3>
+                            <i class="fa-solid fa-brain"></i>
+                            Projeto em Destaque
+                        </h3>
+                    </div>
+
+                    <div class="project-body">
+
+                        <h4>
+                            Nexus IQ — Inteligência para Recursos Humanos
+                        </h4>
+
+                        <p>
+                            Plataforma inteligente desenvolvida para transformar a gestão de recursos humanos através de análise estratégica e recomendações inteligentes.
+                        </p>
+
+                        <p>
+                            O sistema analisa departamentos, desempenho profissional e necessidades organizacionais, oferecendo sugestões personalizadas de formações, capacitação e melhoria contínua para colaboradores e equipas.
+                        </p>
+
+                        <p>
+                            Com uma interface moderna e intuitiva, o Nexus IQ ajuda empresas e instituições a tomar decisões mais inteligentes sobre desenvolvimento profissional e crescimento interno.
+                        </p>
+
+                        <a href="https://nexus-iq-t8p7.vercel.app/"
+                        target="_blank"
+                        class="project-btn">
+
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            Acessar Plataforma
+
+                        </a>
+
+                    </div>
+
+                </div> 
+                
+                
+                <!-- atualizado -->
+                <div class="project-card">
+
+                    <div class="project-header">
+                        <h3>
+                            <i class="fa-solid fa-gamepad"></i>
+                            Projeto em Destaque
+                        </h3>
+                    </div>
+
+                    <div class="project-body">
+
+                        <h4>
+                            Test Your Mind — Plataforma Inteligente de Aprendizagem
+                        </h4>
+
+                        <p>
+                            Sistema educativo moderno baseado em perguntas e respostas inteligentes, criado para tornar o processo de aprendizagem mais interativo, dinâmico e envolvente.
+                        </p>
+
+                        <p>
+                            A plataforma utiliza Inteligência Artificial para geração automática de perguntas, análise de respostas e adaptação dos conteúdos conforme os temas escolhidos pelo utilizador.
+                        </p>
+
+                        <p>
+                            Com temas totalmente personalizáveis, o sistema pode ser utilizado por escolas, universidades e instituições de formação para reforçar o aprendizado de forma prática, divertida e altamente eficiente.
+                        </p>
+
+                        <p>
+                            O Test Your Mind combina tecnologia, gamificação e IA para criar uma experiência educativa moderna e intuitiva.
+                        </p>
+
+                        <a href="#"
+                        class="project-btn">
+
+                            <i class="fa-solid fa-play"></i>
+                            Explorar Plataforma
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- atualizado -->
+                <div class="project-card">
+
+                    <div class="project-header">
+                        <h3>
+                            <i class="fa-solid fa-seedling"></i>
+                            Projeto em Destaque
+                        </h3>
+                    </div>
+
+                    <div class="project-body">
+
+                        <h4>
+                            Sistema Inteligente de Agricultura
+                        </h4>
+
+                        <p>
+                            Plataforma web moderna focada em análise agrícola,
+                            monitoramento inteligente de terrenos,
+                            sensores em tempo real e apoio com Inteligência Artificial
+                            para produtores em Angola.
+                        </p>
+
+                        <p>
+                            O sistema inclui dashboards,
+                            análise de produtividade,
+                            monitoramento climático,
+                            gestão de terras e visualização de dados em tempo real.
+                        </p>
+
+                        <a href="/agricultura"
+                        class="project-btn">
+
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            Acessar Projeto
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+    <script src="static/js/cliente.js"></script>
+
+    <div id="toastContainer"></div>
+
+    <audio id="notificationSound">
+        <source
+            src="/static/audio/notification.mp3"
+            type="audio/mpeg"
+        >
+    </audio>
+
+    <!-- atualizado -->
+    <div class="logout-modal hidden" id="logoutModal">
+
+        <div class="logout-box">
+
+            <div class="logout-icon">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+            </div>
+
+            <h3>Terminar Sessão?</h3>
+
+            <p>
+                Tens certeza que desejas sair da tua conta?
+            </p>
+
+            <div class="logout-actions">
+
+                <button class="cancel-logout" id="cancelLogout">
+                    Cancelar
+                </button>
+
+                <button class="confirm-logout" id="confirmLogout">
+                    Sair
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

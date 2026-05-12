@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin - DevSolutions</title>
+    <link rel="stylesheet" href="static/css/admin.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="user-info">
+                <div class="admin-badge">👑 ADMIN</div>
+                <div>
+                    <div class="user-name" id="userName"></div>
+                    <div class="user-email" id="userEmail"></div>
+                </div>
+            </div>
+            <button class="btn-logout" id="logoutBtn">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                </svg>
+                Sair
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <button class="nav-item active" data-tab="overview">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                    Visão Geral
+                </button>
+                <button class="nav-item" data-tab="users">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                    Usuários
+                </button>
+                <button class="nav-item" data-tab="orders">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    Pedidos
+                </button>
+                <button class="nav-item" data-tab="managers">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    Gestores
+                </button>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Overview Tab -->
+            <div id="overview-tab" class="tab-content active">
+
+
+
+                <h2 class="page-title">Visão Geral</h2>
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+                        <div class="stat-icon blue">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="stat-value" id="totalUsers">0</div>
+                            <div class="stat-label">Total de Usuários</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon green">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="stat-value" id="totalOrders">0</div>
+                            <div class="stat-label">Total de Pedidos</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon purple">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="stat-value" id="totalManagers">0</div>
+                            <div class="stat-label">Gestores Ativos</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon orange">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="stat-value" id="pendingOrders">0</div>
+                            <div class="stat-label">Pedidos Pendentes</div>
+                        </div>
+                    </div>
+                </div>
+
+                                    <!-- OVERVIEW GRID -->
+                    <div class="overview-grid">
+
+                        <!-- ACTIVIDADE -->
+                        <div class="activity-card">
+
+                            <div class="section-header">
+                                <h3>📌 Actividade Recente</h3>
+                            </div>
+
+                            <div class="activity-list" id="activityList">
+
+                                <div class="activity-item">
+                                    <div class="activity-dot"></div>
+
+                                    <div>
+                                        <strong>Novo pedido criado</strong>
+                                        <p>João Silva criou um novo projecto</p>
+                                    </div>
+                                </div>
+
+                                <div class="activity-item">
+                                    <div class="activity-dot purple"></div>
+
+                                    <div>
+                                        <strong>Gestor atribuído</strong>
+                                        <p>Pedro Costa foi atribuído ao projecto</p>
+                                    </div>
+                                </div>
+
+                                <div class="activity-item">
+                                    <div class="activity-dot green"></div>
+
+                                    <div>
+                                        <strong>Projecto concluído</strong>
+                                        <p>Sistema RH finalizado</p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- GRAFICOS -->
+                        <div class="chart-card">
+
+                           <div class="section-header">
+                                <h3>📊 Evolução dos Projetos</h3>
+                            </div>
+
+                            <div class="chart-xy">
+
+                                <!-- EIXO Y -->
+                                <div class="y-axis">
+                                    <span>100%</span>
+                                    <span>75%</span>
+                                    <span>50%</span>
+                                    <span>25%</span>
+                                    <span>0%</span>
+                                </div>
+
+                                <!-- GRÁFICO -->
+                                <div class="chart-area">
+
+                                    <!-- linhas de fundo -->
+                                    <div class="grid-lines">
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                    </div>
+
+                                    <!-- linha do gráfico -->
+                                    <svg class="chart-line" viewBox="0 0 300 150">
+
+                                        <polyline
+                                            points="0,120 80,90 160,60 240,30"
+                                            fill="none"
+                                            stroke="#4f46e5"
+                                            stroke-width="3"
+                                        />
+
+                                    </svg>
+
+                                    <!-- pontos -->
+                                    <div class="points">
+
+                                        <div class="point" style="left:0%; bottom:20%"></div>
+                                        <div class="point" style="left:25%; bottom:40%"></div>
+                                        <div class="point" style="left:50%; bottom:60%"></div>
+                                        <div class="point" style="left:75%; bottom:80%"></div>
+
+                                    </div>
+
+                                    <!-- eixo X -->
+                                    <div class="x-axis">
+                                        <span>Início</span>
+                                        <span>Análise</span>
+                                        <span>Dev</span>
+                                        <span>Testes</span>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+            </div>
+
+            <!-- Users Tab -->
+            <div id="users-tab" class="tab-content">
+                <h2 class="page-title">Gerenciar Usuários</h2>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nome</th>
+                                <th>Email</th>
+                                <th>Tipo</th>
+                                <th>Data Cadastro</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTable"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Orders Tab -->
+            <div id="orders-tab" class="tab-content">
+                <h2 class="page-title">Gerenciar Pedidos</h2>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Cliente</th>
+                                <th>Serviço</th>
+                                <th>Status</th>
+                                <th>Progresso</th>
+                                <th>Gestor</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+
+                        
+
+                        <tbody id="ordersTable"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Managers Tab -->
+            <div id="managers-tab" class="tab-content">
+                <h2 class="page-title">Gerenciar Gestores de Projetos</h2>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nome</th>
+                                <th>Email</th>
+                                <th>Projetos Atribuídos</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="managersTable"></tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Assign Manager Modal -->
+    <div id="assignModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Atribuir Gestor ao Projeto</h3>
+                <button class="btn-close" onclick="closeAssignModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Selecione o Gestor</label>
+                    <select id="managerSelect" class="form-select"></select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeAssignModal()">Cancelar</button>
+                <button class="btn btn-primary" onclick="confirmAssignment()">Atribuir</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- POPUP ATUALIZAR PROGRESSO -->
+    <div class="progress-popup hidden" id="progressPopup">
+
+        <div class="progress-popup-content">
+
+            <div class="popup-header">
+                <h3>Atualizar Progresso</h3>
+
+                <button class="popup-close" id="closeProgressPopup">
+                    ✕
+                </button>
+            </div>
+
+            <p class="popup-subtitle">
+                Selecione a nova etapa do projeto
+            </p>
+
+            <div class="progress-options">
+
+                <button class="progress-option" data-progress="25">
+                    <span>🔍</span>
+                    <div>
+                        <strong>Análise</strong>
+                        <p>25%</p>
+                    </div>
+                </button>
+
+                <button class="progress-option" data-progress="50">
+                    <span>⚙️</span>
+                    <div>
+                        <strong>Desenvolvimento</strong>
+                        <p>50%</p>
+                    </div>
+                </button>
+
+                <button class="progress-option" data-progress="75">
+                    <span>🧪</span>
+                    <div>
+                        <strong>Testes</strong>
+                        <p>75%</p>
+                    </div>
+                </button>
+
+                <button class="progress-option" data-progress="100">
+                    <span>✅</span>
+                    <div>
+                        <strong>Concluído</strong>
+                        <p>100%</p>
+                    </div>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="static/js/admin.js"></script>
+</body>
+</html>

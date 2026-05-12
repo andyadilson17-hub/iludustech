@@ -1,0 +1,883 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #4f46e5;
+    --primary-dark: #4338ca;
+    --dark: #111827;
+    --gray: #6b7280;
+    --light-gray: #f3f4f6;
+    --white: #ffffff;
+}
+
+/* atualizado .particle */
+body{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+    background:
+        linear-gradient(
+            125deg,
+            #4d79e0 0%,
+            #879dcc 30%,
+            #28245f 60%,
+            #4845b8 100%
+        );
+
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* =========================================
+   AUTH CONTAINER
+========================================= */
+
+/* atualizado */
+.auth-container{
+
+    width: 100%;
+    max-width: 1400px;
+
+    min-height: 100vh;
+
+    display: grid;
+
+    grid-template-columns: 1fr 480px;
+
+    align-items: center;
+
+    gap: 60px;
+
+    padding:
+        40px
+        60px;
+
+    margin: 0 auto;
+
+    position: relative;
+}
+
+/* atualizado */
+.auth-box{
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.75);
+
+    backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255,255,255,0.6);
+
+    border-radius: 32px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.08);
+
+    padding: 3rem;
+
+    position: relative;
+    z-index: 5;
+    animation: authAppear 0.8s ease;
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* atualizado imput */
+.auth-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 2rem;
+}
+
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    background: var(--primary);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.icon-circle svg {
+    width: 40px;
+    height: 40px;
+    color: var(--white);
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--dark);
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--gray);
+    font-size: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 0.5rem;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    color: var(--gray);
+    pointer-events: none;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+.form-select {
+    width: 100%;
+    padding: 0.875rem 1rem 0.875rem 3rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s;
+    font-family: inherit;
+    background: rgba(255,255,255,0.8);
+}
+
+.form-select {
+    padding-left: 1rem;
+    cursor: pointer;
+    background: var(--white);
+}
+
+input:focus,
+.form-select:focus{
+    border-color: #4f46e5;
+
+    background: white;
+
+    box-shadow:
+        0 0 0 4px rgba(79,70,229,0.08);
+
+    transform: translateY(-1px);
+}
+
+.btn {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+/* atualizado */
+.btn-primary{
+    background: linear-gradient(
+        135deg,
+        #4f46e5,
+        #7c3aed
+    );
+
+    color: white;
+
+    height: 56px;
+
+    border-radius: 16px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.btn-primary:hover{
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 20px 30px rgba(79,70,229,0.25);
+}
+
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* atualizado */
+.btn:disabled{
+    opacity: 0.8;
+    cursor: not-allowed;
+}
+
+.link-button {
+    background: none;
+    border: none;
+    color: var(--primary);
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 0.5rem;
+    transition: color 0.3s;
+}
+
+.link-button:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+    .auth-box {
+        padding: 2rem 1.5rem;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    .icon-circle {
+        width: 70px;
+        height: 70px;
+    }
+
+    .icon-circle svg {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+/* =========================================
+   POPUP OVERLAY
+========================================= */
+
+/* atualizado */
+.popup{
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+    rgba(15,23,42,0.55);
+
+    backdrop-filter: blur(10px);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 9999;
+
+    padding: 20px;
+
+    animation: popupOverlay 0.25s ease;
+}
+
+/* atualizado */
+@keyframes popupOverlay{
+
+    from{
+        opacity: 0;
+    }
+
+    to{
+        opacity: 1;
+    }
+
+}
+
+/* atualizado */
+.popup-content p{
+
+    font-size: 1rem;
+
+    color: #111827;
+
+    line-height: 1.5;
+
+    margin-bottom: 1.5rem;
+
+    font-weight: 500;
+}
+
+/* =========================================
+   POPUP BOX
+========================================= */
+
+/* atualizado */
+.popup-content{
+
+    width: 100%;
+    max-width: 380px;
+
+    padding: 2rem;
+
+    border-radius: 28px;
+
+    background:
+    rgba(255,255,255,0.92);
+
+    backdrop-filter: blur(20px);
+
+    border:
+    1px solid rgba(255,255,255,0.6);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.18);
+
+    text-align: center;
+
+    animation: popupScale 0.35s ease;
+}
+
+/* atualizado */
+@keyframes popupScale{
+
+    from{
+
+        opacity: 0;
+
+        transform:
+        scale(0.8)
+        translateY(20px);
+
+    }
+
+    to{
+
+        opacity: 1;
+
+        transform:
+        scale(1)
+        translateY(0px);
+
+    }
+
+}
+
+
+/* atualizado */
+.popup-content button{
+
+    width: 100%;
+
+    border: none;
+
+    padding: 0.9rem 1rem;
+
+    border-radius: 14px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #4f46e5,
+        #6366f1
+    );
+
+    color: white;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+/* atualizado */
+.popup-content button:hover{
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 30px rgba(79,70,229,0.3);
+
+}
+
+/* ANIMAÇÃO */
+@keyframes popupFade {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* CORREÇÃO hidden (mantém só uma!) */
+.hidden {
+  display: none !important;
+}
+
+
+/* =========================================
+   BRAND SIDE
+========================================= */
+
+/* atualizado */
+.auth-side{
+    padding: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* atualizado */
+.brand-box{
+    max-width: 500px;
+    z-index: 2;
+}
+
+/* atualizado */
+.brand-logo{
+    width: 90px;
+    height: 90px;
+
+    border-radius: 24px;
+
+    background: linear-gradient(
+        135deg,
+        #4f46e5,
+        #7c3aed
+    );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    font-size: 2rem;
+
+    margin-bottom: 2rem;
+
+    box-shadow:
+        0 20px 40px rgba(79,70,229,0.25);
+}
+
+/* atualizado */
+.brand-box h1{
+    font-size: 4rem;
+    line-height: 1.1;
+    color: #111827;
+    margin-bottom: 1rem;
+}
+
+/* atualizado */
+.brand-box p{
+    font-size: 1.1rem;
+    color: #6b7280;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+/* atualizado */
+.brand-features{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* atualizado */
+.brand-feature{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    background: rgba(255,255,255,0.7);
+
+    backdrop-filter: blur(10px);
+
+    padding: 1rem 1.2rem;
+
+    border-radius: 18px;
+
+    border: 1px solid rgba(255,255,255,0.6);
+    transition: 0.3s;
+    color: #374151;
+    font-weight: 500;
+}
+
+/* atualizado */
+.brand-feature:hover{
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 10px 30px rgba(79,70,229,0.12);
+
+}
+
+/* =========================================
+   PARTICLES
+========================================= */
+
+/* atualizado */
+.particles{
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+/* atualizado */
+.particle{
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(255,255,255,0.9),
+        rgba(99,102,241,0.4)
+    );
+
+    filter: blur(1px);
+
+    box-shadow:
+        0 0 20px rgba(99,102,241,0.4);
+
+    animation:
+        particleFloat linear forwards;
+}
+
+/* atualizado */
+@keyframes particleFloat{
+
+    from{
+
+        transform:
+        translateY(0)
+        translateX(0)
+        scale(0.8);
+
+        opacity: 0;
+    }
+
+    10%{
+        opacity: 1;
+    }
+
+    90%{
+        opacity: 1;
+    }
+
+    to{
+
+        transform:
+        translateY(-120vh)
+        translateX(80px)
+        scale(1.4);
+
+        opacity: 0;
+    }
+}
+
+
+/* atualizado */
+@media(max-width: 600px){
+
+    .particles{
+        display: none;
+    }
+
+}
+
+/* atualizado */
+.brand-feature i{
+    color: #4f46e5;
+    font-size: 1.1rem;
+}
+
+
+/* =========================================
+   RESPONSIVO
+========================================= */
+
+@media(max-width: 980px){
+
+    .auth-container{
+        grid-template-columns: 1fr;
+    }
+
+    .auth-side{
+        display: none;
+    }
+
+    .auth-content{
+        min-height: 100vh;
+    }
+
+    .auth-box{
+        max-width: 100%;
+    }
+
+}
+
+/* atualizado */
+@media(max-width: 600px){
+
+    .auth-content{
+        padding: 1rem;
+    }
+
+    .auth-box{
+        padding: 2rem;
+        border-radius: 24px;
+    }
+
+    .auth-header h1{
+        font-size: 2rem;
+    }
+
+}
+
+/* atualizado */
+.auth-box{
+    animation: authAppear 0.6s ease;
+}
+
+/* atualizado */
+@keyframes authAppear{
+
+    from{
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+
+}
+
+/* =========================================
+   SHOW PASSWORD
+========================================= */
+/* =========================================
+   TOGGLE PASSWORD
+========================================= */
+
+/* atualizado */
+.toggle-password{
+
+    position: absolute;
+
+    top: 50%;
+    right: 16px;
+
+    translate: 0 -50%;
+
+    width: 40px;
+    height: 40px;
+
+    border: none;
+    background: transparent;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    color: #9ca3af;
+
+    z-index: 20;
+
+    transition: 0.3s;
+}
+
+/* atualizado */
+.toggle-password:hover{
+
+    color: #4f46e5;
+
+    transform: scale(1.08);
+}
+
+/* atualizado */
+.toggle-password i{
+
+    font-size: 1rem;
+}
+
+/* atualizado */
+.form-group{
+    animation: fadeInput 0.5s ease;
+}
+
+/* atualizado */
+@keyframes fadeInput{
+
+    from{
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+
+}
+
+/* =========================================
+   SHAKE ERROR
+========================================= */
+
+/* atualizado */
+.shake-error{
+
+    animation: shakeX 0.35s;
+}
+
+/* atualizado */
+.shake-border{
+
+    border-color: #ef4444 !important;
+
+    box-shadow:
+        0 0 0 4px rgba(239,68,68,0.12);
+}
+
+/* atualizado */
+@keyframes shakeX{
+
+    0%{
+        transform: translateX(0);
+    }
+
+    25%{
+        transform: translateX(-6px);
+    }
+
+    50%{
+        transform: translateX(6px);
+    }
+
+    75%{
+        transform: translateX(-6px);
+    }
+
+    100%{
+        transform: translateX(0);
+    }
+
+}
+
+/* atualizado */
+input:hover,
+.form-select:hover{
+    border-color: #c7d2fe;
+}
+
+
+/* =========================================
+   AUTH APPEAR
+========================================= */
+
+/* atualizado */
+@keyframes authAppear{
+
+    from{
+
+        opacity: 0;
+
+        transform:
+        translateY(40px)
+        scale(0.96);
+
+    }
+
+    to{
+
+        opacity: 1;
+
+        transform:
+        translateY(0)
+        scale(1);
+
+    }
+
+}
+
+.auth-brand{
+    position: relative;
+    z-index: 5;
+    padding-right: 30px;
+}
+
+/* =========================================
+   REGISTER PAGE
+========================================= */
+
+/* atualizado */
+.register-page .auth-container{
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    max-width: 1000px;
+}
+
+/* atualizado */
+.register-page .auth-box{
+
+    max-width: 520px;
+
+    width: 100%;
+}
