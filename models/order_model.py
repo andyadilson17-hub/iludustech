@@ -85,7 +85,7 @@ def get_orders(user_id):
                 Progresso,
                 TipoPedido,
                 DataPedido
-            FROM Pedido
+            FROM pedido
             WHERE fk_Cliente_id_Cliente = %s
             ORDER BY DataPedido DESC
         """, (cliente_id,))
@@ -122,7 +122,7 @@ def get_all_orders():
                 p.Estado,
                 p.Etapa,
                 p.Progresso
-            FROM Pedido p
+            FROM pedido p
 
             JOIN cliente c
                 ON p.fk_Cliente_id_Cliente = c.id_Cliente
@@ -196,9 +196,9 @@ def update_order(order_id, etapa):
         # =========================
 
 
-        cur.execute("""
+        cur.execute ("""
             SELECT fk_Cliente_id_Cliente
-            FROM Pedido
+            FROM pedido
             WHERE id_Pedido = %s
         """, (order_id,))
 
@@ -208,7 +208,7 @@ def update_order(order_id, etapa):
 
         cur.execute("""
             
-            UPDATE Pedido
+            UPDATE pedido
 
             SET
                 Etapa = %s,

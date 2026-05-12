@@ -33,7 +33,7 @@ def login_user(email, password):
         return {
             "status": "sucesso",
             "user": {
-                "id": user[0],  # id_Usuario
+                "id": user[0],  # id_Usuario pedido
                 "nome": user[1],
                 "email": user[2]
             }

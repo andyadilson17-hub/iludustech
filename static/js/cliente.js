@@ -12,6 +12,7 @@ const submitOrderBtn = document.getElementById('submitOrderBtn');
 
 // ==========================
 // DADOS (apenas visual)
+pedido
 // ==========================
 const services = [
 
