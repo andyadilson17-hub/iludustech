@@ -1,3 +1,13 @@
+// atualizado
+const currentUser = JSON.parse(
+    localStorage.getItem("currentUser")
+);
+
+if(!currentUser){
+    window.location.href = "/login";
+}
+
+
 // ==========================
 // ELEMENTOS
 // ==========================
@@ -1043,17 +1053,7 @@ stars.forEach((star, index) => {
 // USER INFO
 // =========================
 
-// atualizado
-const currentUser = JSON.parse(
-    localStorage.getItem("currentUser")
-);
 
-if(currentUser){
-
-    document.getElementById(
-        "sidebarUserName"
-    ).textContent = currentUser.nome;
-}
 
 // =========================
 // LOGOUT
@@ -1072,7 +1072,7 @@ const confirmLogout =
     document.getElementById("confirmLogout");
 
 
-// atualizado
+// atualizado logoutBtn
 logoutBtn.addEventListener("click", () => {
 
     logoutModal.classList.remove("hidden");
