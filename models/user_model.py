@@ -65,11 +65,14 @@ def create_user(name, email, password, tipo):
 
         user_id = cur.lastrowid
 
-        cur.execute("""
-            INSERT INTO cliente 
-            (fk_Usuario_id_Usuario, TipoCliente) 
-            VALUES (%s, %s)
-        """, (user_id, tipo))
+        try:
+            cur.execute("""
+                INSERT INTO cliente 
+                (fk_Usuario_id_Usuario, TipoCliente) 
+                VALUES (%s, %s)
+            """, (user_id, tipo))
+        except Exception as e:
+            print("ERRO Completo Verificado:")
         
         mysql.connection.commit()
         cur.close()
