@@ -1073,11 +1073,17 @@ const confirmLogout =
 
 
 // atualizado logoutBtn
-logoutBtn.addEventListener("click", () => {
+if(logoutBtn){
+    logoutBtn.addEventListener("click", () => {
 
-    logoutModal.classList.remove("hidden");
+        localStorage.removeItem("currentUser");
 
-});
+        setTimeout(() =>{
+             window.location.href = "/login";
+        },1000);
+       
+    });
+}
 
 // atualizado
 cancelLogout.addEventListener("click", () => {
