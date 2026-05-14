@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 load_dotenv();
 
 BREVO_API_KEY = os.getenv("BREVO_API_KEY")
+print("CHAVE: ", BREVO_API_KEY)
 
 def send_verification_email(email, code):
 
@@ -14,7 +15,7 @@ def send_verification_email(email, code):
 
     headers = {
         "accept": "application/json",
-        "api-key": "BREVO_API_KEY",
+        "api-key": BREVO_API_KEY,
         "content-type": "application/json"
     }
 
