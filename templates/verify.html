@@ -63,11 +63,28 @@
         .then(data => {
 
             if(data.status === "sucesso"){
-                showPopup("Conta verificada!");
-                
-                setTimeout(()=>{
-                    window.location.href = "/cliente";
-                },1500);
+
+                // atualizado
+                showPopup(
+                    "Cadastro realizado com sucesso! Por segurança, faça login com os seus dados."
+                );
+
+                // atualizado
+                localStorage.removeItem("currentUser");
+
+                // atualizado
+                localStorage.removeItem("admin");
+
+                // atualizado
+                localStorage.removeItem("email_verify");
+
+                setTimeout(() => {
+
+                    // atualizado
+                    window.location.href = "/login";
+
+                }, 2500);
+            }
 
             }else if(data.status === "codigo_invalido"){
                 showPopup("Código inválido");
