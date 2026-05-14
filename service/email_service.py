@@ -14,7 +14,7 @@ def send_verification_email(email, code):
 
     headers = {
         "accept": "application/json",
-        "api-key": os.getenv("BREVO_API_KEY"),
+        "api-key": "BREVO_API_KEY",
         "content-type": "application/json"
     }
 
