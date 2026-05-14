@@ -2,7 +2,7 @@ from extensions import mysql
 from werkzeug.security import generate_password_hash, check_password_hash
 import random
 import datetime
-from utils.email_service import send_verification_email 
+from service.email_service import send_verification_email
 
 #mysql = MySQL()
 
@@ -100,6 +100,8 @@ def verify_user(email, code):
             """, (email,))
 
             user = cur.fetchone()
+            
+            send_verification_email(email, code);
 
             if not user:
                 return "nao_encontrado"
@@ -150,7 +152,7 @@ def resend_code(email):
         cur.close()
 
         # enviar novo email
-        from utils.email_service import send_verification_email
+        from service.email_service import send_verification_email
         email_sent = send_verification_email(email, code)
 
         if not email_sent:
