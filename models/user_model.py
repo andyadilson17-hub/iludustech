@@ -82,6 +82,7 @@ def create_user(name, email, password, tipo):
 
 
         return {"status": "sucesso", "code": code}
+    
 
     except Exception as e:
         import traceback
