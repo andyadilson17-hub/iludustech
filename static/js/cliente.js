@@ -19,6 +19,8 @@ const servicesGrid = document.getElementById('servicesGrid');
 const orderForm = document.getElementById('orderForm');
 const descriptionInput = document.getElementById('descriptionInput');
 const submitOrderBtn = document.getElementById('submitOrderBtn');
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const sidebar = document.getElementById('sidebar');
 
 // ==========================
 // DADOS (apenas visual)
@@ -718,6 +720,13 @@ navItems.forEach(btn => {
 
         navItems.forEach(n => n.classList.remove('active'));
         btn.classList.add('active');
+
+        // atualizado
+        if(window.innerWidth <= 768){
+
+            sidebar.classList.remove("sidebar-open");
+
+        }
     });
 });
 
@@ -1109,6 +1118,21 @@ confirmLogout.addEventListener("click", () => {
 mobileMenuBtn.addEventListener("click", () => {
 
     sidebar.classList.toggle("sidebar-open");
+
+});
+
+// atualizado btn
+document.addEventListener("click", (e) => {
+
+    const clickedSidebar = sidebar.contains(e.target);
+
+    const clickedButton = mobileMenuBtn.contains(e.target);
+
+    if(!clickedSidebar && !clickedButton){
+
+        sidebar.classList.remove("sidebar-open");
+
+    }
 
 });
 
