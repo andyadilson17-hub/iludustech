@@ -724,7 +724,10 @@ navItems.forEach(btn => {
         // atualizado
         if(window.innerWidth <= 768){
 
-            sidebar.classList.remove("sidebar-open");
+            if(window.innerWidth <= 768){
+                 
+                sidebar.classList.remove("sidebar-open"); 
+            }
 
         }
     });
@@ -1114,27 +1117,31 @@ confirmLogout.addEventListener("click", () => {
 // MOBILE MENU
 // =========================
 
-// atualizado notification
-mobileMenuBtn.addEventListener("click", () => {
+// ========================= 
+// // MOBILE MENU // 
+// ========================= 
+// 
 
-    sidebar.classList.toggle("sidebar-open");
-
-});
-
-// atualizado btn
-document.addEventListener("click", (e) => {
-
-    const clickedSidebar = sidebar.contains(e.target);
-
-    const clickedButton = mobileMenuBtn.contains(e.target);
-
-    if(!clickedSidebar && !clickedButton){
-
-        sidebar.classList.remove("sidebar-open");
-
-    }
-
-});
+if (mobileMenuBtn && sidebar) { 
+    
+    // Abrir / fechar 
+    mobileMenuBtn.addEventListener("click", (e) => { 
+        e.stopPropagation(); 
+        
+        sidebar.classList.toggle("sidebar-open"); 
+    }); 
+    
+    // Fechar ao clicar fora 
+    
+    document.addEventListener("click", (e) => { 
+        const clickedSidebar = sidebar.contains(e.target); 
+        const clickedButton = mobileMenuBtn.contains(e.target); 
+        
+        if (!clickedSidebar && !clickedButton) { 
+            sidebar.classList.remove("sidebar-open"); 
+        } 
+    }); 
+}
 
 window.addEventListener('load',() =>{
 
