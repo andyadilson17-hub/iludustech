@@ -1117,7 +1117,7 @@ confirmLogout.addEventListener("click", () => {
 // atualizado notification
 mobileMenuBtn.addEventListener("click", () => {
 
-    sidebar.classList.toggle("sidebar-open");
+    sidebar.classList.toggle("sidebar-active");
 
 });
 
@@ -1130,7 +1130,7 @@ document.addEventListener("click", (e) => {
 
     if(!clickedSidebar && !clickedButton){
 
-        sidebar.classList.remove("sidebar-open");
+        sidebar.classList.remove("sidebar-active");
 
     }
 

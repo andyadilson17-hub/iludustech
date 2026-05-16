@@ -685,6 +685,7 @@ background: linear-gradient( 90deg, #00ff88, rgba(0,255,136,0.25) );
     display: flex;
     flex-direction: column;
     z-index: 1200;
+    transition: p.3s ease;
 }
 
 .sidebar-header {
