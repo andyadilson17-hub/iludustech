@@ -725,7 +725,7 @@ navItems.forEach(btn => {
         if(window.innerWidth <= 768){
 
             if(window.innerWidth <= 768){
-                 
+
                 sidebar.classList.remove("sidebar-open"); 
             }
 
@@ -1116,6 +1116,9 @@ confirmLogout.addEventListener("click", () => {
 // =========================
 // MOBILE MENU
 // =========================
+
+console.log("BTN: ", mobileMenuBtn);
+console.log("Sidebar: ", sidebar);
 
 // ========================= 
 // // MOBILE MENU // 
