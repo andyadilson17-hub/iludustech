@@ -1062,17 +1062,7 @@ stars.forEach((star, index) => {
 // USER INFO
 // =========================
 
-// atualizado
-const currentUser = JSON.parse(
-    localStorage.getItem("currentUser")
-);
 
-if(currentUser){
-
-    document.getElementById(
-        "sidebarUserName"
-    ).textContent = currentUser.nome;
-}
 
 // =========================
 // LOGOUT
