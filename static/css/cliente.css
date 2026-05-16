@@ -1065,14 +1065,41 @@ margin-top:2rem; padding:1rem; border-radius:22px; background: rgba(0,0,0,0.03);
     font-size:0.88rem;
 }
 
-/* ========================================= SIDEBAR LOGO ========================================= */
-.sidebar-header{
-display:flex; align-items:center; justify-content:center; padding:1rem 0 2rem; margin-bottom:1.5rem; border-bottom: 1px solid rgba(0,0,0,0.06); 
+/* ========================================= 
+LOGO SIDEBAR 
+========================================= */ 
+.company-logo{ 
+    width: 100%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    padding: 1.2rem 1rem 1.5rem; 
+    position: relative; 
+} 
+
+/* imagem */ 
+.sidebar-logo-img{ 
+    width: 200px; 
+    height: 47px; 
+    object-fit: contain; 
+    display: block; 
+    transition: 0.3s ease; 
+} 
+
+/* evita ficar colada à esquerda */ 
+.sidebar-top{ 
+    padding-inline: 0.8rem; 
+} 
+
+/* responsivo */ 
+@media(max-width:768px){ 
+    .sidebar-logo-img{ 
+        width: 170px; 
+        height: auto; 
+    } 
 }
-.sidebar-logo{
-width:180px; max-width:100%; object-fit:contain; filter: drop-shadow(0 0 12px rgba(0,255,136,0.18)); transition:all .3s ease; 
-}
-.sidebar-logo:hover{
+
+.company-logo:hover{
 transform: scale(1.03); filter: drop-shadow(0 0 22px rgba(0,255,136,0.28)); 
 }
 
