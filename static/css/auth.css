@@ -1,303 +1,16 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    --primary: #4f46e5;
-    --primary-dark: #4338ca;
-    --dark: #111827;
-    --gray: #6b7280;
-    --light-gray: #f3f4f6;
-    --white: #ffffff;
-}
-
-/* atualizado .particle */
-body{
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-
-    background:
-        linear-gradient(
-            125deg,
-            #4d79e0 0%,
-            #879dcc 30%,
-            #28245f 60%,
-            #4845b8 100%
-        );
-
-    min-height: 100vh;
-    overflow-x: hidden;
-    position: relative;
-
-}
-
-.hidden {
-    display: none !important;
-}
-
-/* =========================================
-   AUTH CONTAINER
-========================================= */
-
-/* atualizado */
-.auth-container{
-
-    width: 100%;
-    max-width: 1400px;
-
-    min-height: 100vh;
-
-    display: grid;
-
-    grid-template-columns: 1fr 480px;
-
-    align-items: center;
-
-    gap: 60px;
-
-    padding:
-        40px
-        60px;
-
-    margin: 0 auto;
-
-    position: relative;
-}
-
-/* atualizado */
-.auth-box{
-    width: 100%;
-    max-width: 480px;
-    margin: 0 auto;
-    background: rgba(255,255,255,0.75);
-
-    backdrop-filter: blur(20px);
-
-    border: 1px solid rgba(255,255,255,0.6);
-
-    border-radius: 32px;
-
-    box-shadow:
-        0 20px 60px rgba(0,0,0,0.08);
-
-    padding: 3rem;
-
-    position: relative;
-    z-index: 5;
-    animation: authAppear 0.8s ease;
-}
-
-.auth-header {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-/* atualizado imput */
-.auth-content{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 2rem;
-}
-
-.icon-circle {
-    width: 80px;
-    height: 80px;
-    background: var(--primary);
-    border-radius: 50%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1.5rem;
-}
-
-.icon-circle svg {
-    width: 40px;
-    height: 40px;
-    color: var(--white);
-}
-
-h1 {
-    font-size: 2rem;
-    font-weight: bold;
-    color: var(--dark);
-    margin-bottom: 0.5rem;
-}
-
-.subtitle {
-    color: var(--gray);
-    font-size: 1rem;
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-label {
-    display: block;
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--dark);
-    margin-bottom: 0.5rem;
-}
-
-.input-wrapper {
-    position: relative;
-}
-
-.input-icon {
-    position: absolute;
-    left: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
-    color: var(--gray);
-    pointer-events: none;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"],
-.form-select {
-    width: 100%;
-    padding: 0.875rem 1rem 0.875rem 3rem;
-    border: 2px solid #e5e7eb;
-    border-radius: 0.75rem;
-    font-size: 1rem;
-    outline: none;
-    transition: all 0.3s;
-    font-family: inherit;
-    background: rgba(255,255,255,0.8);
-}
-
-.form-select {
-    padding-left: 1rem;
-    cursor: pointer;
-    background: var(--white);
-}
-
-input:focus,
-.form-select:focus{
-    border-color: #4f46e5;
-
-    background: white;
-
-    box-shadow:
-        0 0 0 4px rgba(79,70,229,0.08);
-
-    transform: translateY(-1px);
-}
-
-.btn {
-    width: 100%;
-    padding: 1rem;
-    border: none;
-    border-radius: 0.75rem;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-/* atualizado */
-.btn-primary{
-    background: linear-gradient(
-        135deg,
-        #4f46e5,
-        #7c3aed
-    );
-
-    color: white;
-
-    height: 56px;
-
-    border-radius: 16px;
-
-    font-weight: 600;
-
-    transition: 0.3s;
-}
-
-.btn-primary:hover{
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 20px 30px rgba(79,70,229,0.25);
-}
-
-
-.btn-primary:active {
-    transform: translateY(0);
-}
-
-.auth-footer {
-    text-align: center;
-    margin-top: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-/* atualizado */
-.btn:disabled{
-    opacity: 0.8;
-    cursor: not-allowed;
-}
-
-.link-button {
-    background: none;
-    border: none;
-    color: var(--primary);
-    font-weight: 500;
-    cursor: pointer;
-    text-decoration: none;
-    padding: 0.5rem;
-    transition: color 0.3s;
-}
-
-.link-button:hover {
-    color: var(--primary-dark);
-    text-decoration: underline;
-}
-
-@media (max-width: 480px) {
-    .auth-box {
-        padding: 2rem 1.5rem;
-    }
-
-    h1 {
-        font-size: 1.75rem;
-    }
-
-    .icon-circle {
-        width: 70px;
-        height: 70px;
-    }
-
-    .icon-circle svg {
-        width: 35px;
-        height: 35px;
-    }
-}
-
+*{ margin:0; padding:0; box-sizing:border-box; } :root{ --primary:#00ff7f; --primary-dark:#00cc66; --dark:#050505; --dark-light:#111827; --gray:#9ca3af; --white:#ffffff; --glass:rgba(255,255,255,0.05); --border:rgba(0,255,127,0.12); } /* ========================================= BODY ========================================= */ body{ font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; background: radial-gradient( circle at top left, rgba(0,255,127,0.18), transparent 30% ), radial-gradient( circle at bottom right, rgba(0,255,127,0.10), transparent 25% ), linear-gradient( 135deg, #050505 0%, #0b0b0b 30%, #111827 70%, #07140d 100% ); min-height:100vh; overflow-x:hidden; position:relative; color:var(--white); } .hidden{ display:none !important; } /* ========================================= AUTH CONTAINER ========================================= */ .auth-container{ width:100%; max-width:1400px; min-height:100vh; display:grid; grid-template-columns:1fr 520px; align-items:center; gap:70px; padding:40px 60px; margin:0 auto; position:relative; } /* ========================================= AUTH BOX ========================================= */ .auth-box{ width:100%; max-width:520px; margin:0 auto; background:rgba(255,255,255,0.05); backdrop-filter:blur(22px); border:1px solid rgba(0,255,127,0.10); border-radius:32px; padding:3rem; position:relative; z-index:5; box-shadow: 0 25px 60px rgba(0,0,0,0.45); animation:authAppear 0.8s ease; } /* brilho */ .auth-box::before{ content:""; position:absolute; width:250px; height:250px; background: radial-gradient( rgba(0,255,127,0.12), transparent ); top:-120px; right:-120px; border-radius:50%; pointer-events:none; } /* ========================================= HEADER ========================================= */ .auth-header{ text-align:center; margin-bottom:2rem; } .auth-content{ display:flex; align-items:center; justify-content:center; padding:2rem; } .icon-circle{ width:85px; height:85px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; margin-bottom:1.5rem; background: linear-gradient( 135deg, #00ff7f, #00c96b ); box-shadow: 0 15px 35px rgba(0,255,127,0.25); } .icon-circle svg{ width:40px; height:40px; color:#000; } h1{ font-size:2.3rem; font-weight:800; color:white; margin-bottom:0.7rem; } .subtitle{ color:#9ca3af; font-size:1rem; line-height:1.7; } /* ========================================= FORM ========================================= */ .form-group{ margin-bottom:1.5rem; } label{ display:block; font-size:0.92rem; font-weight:600; color:#d1d5db; margin-bottom:0.7rem; } .input-wrapper{ position:relative; } .input-icon{ position:absolute; left:1rem; top:50%; transform:translateY(-50%); width:20px; height:20px; color:#00ff7f; pointer-events:none; } /* ========================================= INPUTS ========================================= */ input[type="text"], input[type="email"], input[type="password"], .form-select{ width:100%; padding:1rem 1rem 1rem 3rem; border:1px solid rgba(255,255,255,0.08); border-radius:18px; font-size:1rem; outline:none; transition:0.3s; font-family:inherit; background:rgba(255,255,255,0.04); color:white; } .form-select{ padding-left:1rem; cursor:pointer; } /* focus */ input:focus, .form-select:focus{ border-color:rgba(0,255,127,0.4); background:rgba(255,255,255,0.07); box-shadow: 0 0 0 4px rgba(0,255,127,0.08); transform:translateY(-2px); } /* placeholder */ input::placeholder{ color:#6b7280; } /* ========================================= BUTTONS ========================================= */ .btn{ width:100%; padding:1rem; border:none; border-radius:18px; font-size:1rem; font-weight:700; cursor:pointer; transition:0.3s; } /* principal */ .btn-primary{ background: linear-gradient( 135deg, #00ff7f, #00c96b ); color:#000; height:60px; font-weight:700; box-shadow: 0 15px 30px rgba(0,255,127,0.18); } .btn-primary:hover{ transform:translateY(-4px); box-shadow: 0 20px 40px rgba(0,255,127,0.28); } .btn-primary:active{ transform:translateY(0); } .btn:disabled{ opacity:0.8; cursor:not-allowed; } /* ========================================= FOOTER ========================================= */ .auth-footer{ text-align:center; margin-top:1.5rem; display:flex; flex-direction:column; gap:0.5rem; } .link-button{ background:none; border:none; color:#00ff7f; font-weight:600; cursor:pointer; text-decoration:none; padding:0.5rem; transition:0.3s; } .link-button:hover{ color:#ffffff; text-decoration:underline; } /* ========================================= ANIMAÇÃO ========================================= */ @keyframes authAppear{ from{ opacity:0; transform:translateY(30px); } to{ opacity:1; transform:translateY(0); } } /* ========================================= RESPONSIVO ========================================= */ @media(max-width:1100px){ .auth-container{ grid-template-columns:1fr; gap:40px; padding:40px 30px; } .auth-box{ max-width:100%; } } /* MOBILE */ @media(max-width:768px){ body{ padding:20px 0; } .auth-container{ min-height:auto; padding:20px; display:flex; align-items:center; justify-content:center; } .auth-box{ width:100%; padding:2.2rem 1.4rem; border-radius:28px; } h1{ font-size:1.9rem; } .subtitle{ font-size:0.95rem; } .icon-circle{ width:75px; height:75px; } .icon-circle svg{ width:34px; height:34px; } input[type="text"], input[type="email"], input[type="password"], .form-select{ height:58px; font-size:0.95rem; } .btn-primary{ height:58px; } } /* MOBILE PEQUENO */ @media(max-width:480px){ .auth-container{ padding:15px; } .auth-box{ padding:2rem 1.2rem; } h1{ font-size:1.7rem; } .icon-circle{ width:68px; height:68px; } .icon-circle svg{ width:30px; height:30px; } }
 /* =========================================
    POPUP OVERLAY
 ========================================= */
 
-/* atualizado */
 .popup{
-
     position: fixed;
-
     inset: 0;
 
     background:
-    rgba(15,23,42,0.55);
+    rgba(0,0,0,0.72);
 
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
 
     display: flex;
 
@@ -308,10 +21,12 @@ input:focus,
 
     padding: 20px;
 
-    animation: popupOverlay 0.25s ease;
+    animation: popupOverlay 0.3s ease;
+
+    overflow-y: auto;
 }
 
-/* atualizado */
+/* animação overlay */
 @keyframes popupOverlay{
 
     from{
@@ -324,375 +39,230 @@ input:focus,
 
 }
 
-/* atualizado */
-.popup-content p{
-
-    font-size: 1rem;
-
-    color: #111827;
-
-    line-height: 1.5;
-
-    margin-bottom: 1.5rem;
-
-    font-weight: 500;
-}
-
 /* =========================================
    POPUP BOX
 ========================================= */
 
-/* atualizado */
 .popup-content{
 
     width: 100%;
-    max-width: 380px;
+    max-width: 420px;
 
-    padding: 2rem;
+    padding: 2.2rem;
 
-    border-radius: 28px;
+    border-radius: 30px;
 
     background:
-    rgba(255,255,255,0.92);
+    linear-gradient(
+        180deg,
+        rgba(10,10,10,0.96),
+        rgba(17,24,39,0.96)
+    );
 
     backdrop-filter: blur(20px);
 
     border:
-    1px solid rgba(255,255,255,0.6);
+    1px solid rgba(0,255,127,0.12);
 
     box-shadow:
-        0 20px 60px rgba(0,0,0,0.18);
+    0 25px 60px rgba(0,0,0,0.45);
 
     text-align: center;
 
+    position: relative;
+
     animation: popupScale 0.35s ease;
+
+    overflow: hidden;
 }
 
-/* atualizado */
+/* brilho neon */
+.popup-content::before{
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    background:
+    radial-gradient(
+        rgba(0,255,127,0.18),
+        transparent
+    );
+
+    top: -100px;
+    right: -100px;
+
+    border-radius: 50%;
+}
+
+/* animação popup */
 @keyframes popupScale{
 
     from{
-
         opacity: 0;
 
         transform:
-        scale(0.8)
-        translateY(20px);
-
+        scale(0.82)
+        translateY(25px);
     }
 
     to{
-
         opacity: 1;
 
         transform:
         scale(1)
         translateY(0px);
-
     }
 
 }
 
+/* texto */
+.popup-content p{
 
-/* atualizado */
+    font-size: 1rem;
+
+    color: rgba(255,255,255,0.78);
+
+    line-height: 1.7;
+
+    margin-bottom: 1.8rem;
+
+    font-weight: 500;
+
+    position: relative;
+    z-index: 2;
+}
+
+/* título opcional */
+.popup-content h3{
+
+    color: white;
+
+    font-size: 1.5rem;
+
+    margin-bottom: 1rem;
+
+    position: relative;
+    z-index: 2;
+}
+
+/* botão */
 .popup-content button{
 
     width: 100%;
 
     border: none;
 
-    padding: 0.9rem 1rem;
+    padding: 1rem;
 
-    border-radius: 14px;
+    border-radius: 16px;
 
     background:
     linear-gradient(
         135deg,
-        #4f46e5,
-        #6366f1
+        #00ff7f,
+        #00c96b
     );
 
-    color: white;
+    color: #000;
 
-    font-weight: 600;
+    font-weight: 700;
 
     cursor: pointer;
 
-    transition: 0.3s;
-}
+    transition: 0.35s ease;
 
-/* atualizado */
-.popup-content button:hover{
-
-    transform: translateY(-2px);
-
-    box-shadow:
-        0 12px 30px rgba(79,70,229,0.3);
-
-}
-
-/* ANIMAÇÃO */
-@keyframes popupFade {
-  from {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-/* CORREÇÃO hidden (mantém só uma!) */
-.hidden {
-  display: none !important;
-}
-
-
-/* =========================================
-   BRAND SIDE
-========================================= */
-
-/* atualizado */
-.auth-side{
-    padding: 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: relative;
-}
-
-/* atualizado */
-.brand-box{
-    max-width: 500px;
     z-index: 2;
 }
 
-/* atualizado */
-.brand-logo{
-    width: 90px;
-    height: 90px;
+/* hover botão */
+.popup-content button:hover{
 
-    border-radius: 24px;
-
-    background: linear-gradient(
-        135deg,
-        #4f46e5,
-        #7c3aed
-    );
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: white;
-    font-size: 2rem;
-
-    margin-bottom: 2rem;
+    transform: translateY(-3px);
 
     box-shadow:
-        0 20px 40px rgba(79,70,229,0.25);
-}
-
-/* atualizado */
-.brand-box h1{
-    font-size: 4rem;
-    line-height: 1.1;
-    color: #111827;
-    margin-bottom: 1rem;
-}
-
-/* atualizado */
-.brand-box p{
-    font-size: 1.1rem;
-    color: #6b7280;
-    line-height: 1.8;
-    margin-bottom: 2rem;
-}
-
-/* atualizado */
-.brand-features{
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-/* atualizado */
-.brand-feature{
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-
-    background: rgba(255,255,255,0.7);
-
-    backdrop-filter: blur(10px);
-
-    padding: 1rem 1.2rem;
-
-    border-radius: 18px;
-
-    border: 1px solid rgba(255,255,255,0.6);
-    transition: 0.3s;
-    color: #374151;
-    font-weight: 500;
-}
-
-/* atualizado */
-.brand-feature:hover{
-
-    transform: translateY(-4px);
-
-    box-shadow:
-        0 10px 30px rgba(79,70,229,0.12);
+    0 15px 35px rgba(0,255,127,0.28);
 
 }
 
-/* =========================================
-   PARTICLES
-========================================= */
-
-/* atualizado */
-.particles{
-
-    position: fixed;
-
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    overflow: hidden;
-
-    pointer-events: none;
-
-    z-index: 1;
-}
-
-/* atualizado */
-.particle{
+/* botão fechar opcional */
+.popup-close{
 
     position: absolute;
 
+    top: 18px;
+    right: 18px;
+
+    width: 42px;
+    height: 42px;
+
     border-radius: 50%;
 
-    background:
-    linear-gradient(
-        135deg,
-        rgba(255,255,255,0.9),
-        rgba(99,102,241,0.4)
-    );
+    border: 1px solid rgba(255,255,255,0.08);
 
-    filter: blur(1px);
+    background: rgba(255,255,255,0.05);
 
-    box-shadow:
-        0 0 20px rgba(99,102,241,0.4);
+    color: white;
 
-    animation:
-        particleFloat linear forwards;
+    cursor: pointer;
+
+    transition: 0.3s ease;
+
+    z-index: 5;
 }
 
-/* atualizado */
-@keyframes particleFloat{
+.popup-close:hover{
 
-    from{
+    background: #00ff7f;
 
-        transform:
-        translateY(0)
-        translateX(0)
-        scale(0.8);
+    color: #000;
 
-        opacity: 0;
-    }
-
-    10%{
-        opacity: 1;
-    }
-
-    90%{
-        opacity: 1;
-    }
-
-    to{
-
-        transform:
-        translateY(-120vh)
-        translateX(80px)
-        scale(1.4);
-
-        opacity: 0;
-    }
+    transform: rotate(90deg);
 }
-
-
-/* atualizado */
-@media(max-width: 600px){
-
-    .particles{
-        display: none;
-    }
-
-}
-
-/* atualizado */
-.brand-feature i{
-    color: #4f46e5;
-    font-size: 1.1rem;
-}
-
 
 /* =========================================
    RESPONSIVO
 ========================================= */
 
-@media(max-width: 980px){
+@media(max-width:768px){
 
-    .auth-container{
-        grid-template-columns: 1fr;
+    .popup{
+        padding: 16px;
+        align-items: flex-end;
     }
 
-    .auth-side{
-        display: none;
-    }
+    .popup-content{
 
-    .auth-content{
-        min-height: 100vh;
-    }
-
-    .auth-box{
         max-width: 100%;
+
+        padding: 1.8rem;
+
+        border-radius: 28px 28px 18px 18px;
+
+        animation:
+        popupMobile 0.35s ease;
+    }
+
+    .popup-content h3{
+        font-size: 1.3rem;
+    }
+
+    .popup-content p{
+        font-size: 0.95rem;
+        line-height: 1.6;
     }
 
 }
 
-/* atualizado */
-@media(max-width: 600px){
-
-    .auth-content{
-        padding: 1rem;
-    }
-
-    .auth-box{
-        padding: 2rem;
-        border-radius: 24px;
-    }
-
-    .auth-header h1{
-        font-size: 2rem;
-    }
-
-}
-
-/* atualizado */
-.auth-box{
-    animation: authAppear 0.6s ease;
-}
-
-/* atualizado */
-@keyframes authAppear{
+/* animação mobile */
+@keyframes popupMobile{
 
     from{
         opacity: 0;
-        transform: translateY(40px);
+        transform: translateY(100px);
     }
 
     to{
@@ -702,6 +272,13 @@ input:focus,
 
 }
 
+/* hidden */
+.hidden{
+    display: none !important;
+}
+
+/* ========================================= BRAND SIDE - PREMIUM DARK NEON ========================================= */ .auth-side{ padding: 4rem; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; } /* glow fundo */ .auth-side::before{ content: ""; position: absolute; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient( rgba(0,255,127,0.12), transparent ); top: -180px; left: -180px; filter: blur(80px); z-index: 0; } /* glow secundário */ .auth-side::after{ content: ""; position: absolute; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient( rgba(0,255,127,0.08), transparent ); bottom: -150px; right: -120px; filter: blur(90px); z-index: 0; } /* ========================================= BRAND BOX ========================================= */ .brand-box{ max-width: 520px; position: relative; z-index: 2; } /* ========================================= LOGO ========================================= */ .brand-logo{ width: 95px; height: 95px; border-radius: 28px; display: flex; align-items: center; justify-content: center; background: linear-gradient( 135deg, #00ff7f, #00c96b ); color: #000; font-size: 2.2rem; margin-bottom: 2rem; box-shadow: 0 20px 45px rgba(0,255,127,0.28); position: relative; overflow: hidden; } /* brilho animado */ .brand-logo::before{ content: ""; position: absolute; width: 180%; height: 180%; background: linear-gradient( 120deg, transparent, rgba(255,255,255,0.45), transparent ); transform: rotate(25deg); animation: logoShine 5s linear infinite; } @keyframes logoShine{ 0%{ left: -220%; } 100%{ left: 220%; } } /* ========================================= TITULO ========================================= */ .brand-box h1{ font-size: 4rem; line-height: 1.05; color: #ffffff; margin-bottom: 1.2rem; font-weight: 800; letter-spacing: -2px; } /* destaque */ .brand-box h1 span{ color: #00ff7f; text-shadow: 0 0 20px rgba(0,255,127,0.35); } /* ========================================= TEXTO ========================================= */ .brand-box p{ font-size: 1.08rem; color: #94a3b8; line-height: 1.9; margin-bottom: 2.5rem; } /* ========================================= FEATURES ========================================= */ .brand-features{ display: flex; flex-direction: column; gap: 1rem; } /* card */ .brand-feature{ display: flex; align-items: center; gap: 1rem; background: rgba(255,255,255,0.03); backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.06); padding: 1.1rem 1.3rem; border-radius: 20px; transition: 0.35s ease; color: #d1d5db; font-weight: 500; position: relative; overflow: hidden; } /* glow hover */ .brand-feature::before{ content: ""; position: absolute; inset: 0; background: linear-gradient( 135deg, rgba(0,255,127,0.08), transparent ); opacity: 0; transition: 0.35s; } .brand-feature:hover::before{ opacity: 1; } .brand-feature:hover{ transform: translateY(-5px); border-color: rgba(0,255,127,0.2); box-shadow: 0 12px 35px rgba(0,255,127,0.08); } /* ícone */ .brand-feature i{ width: 42px; height: 42px; min-width: 42px; display: flex; align-items: center; justify-content: center; border-radius: 14px; background: linear-gradient( 135deg, #00ff7f, #00c96b ); color: #000; font-size: 1rem; box-shadow: 0 10px 25px rgba(0,255,127,0.22); } /* ========================================= PARTICLES ========================================= */ .particles{ position: fixed; inset: 0; width: 100%; height: 100%; overflow: hidden; pointer-events: none; z-index: 1; } /* partículas neon */ .particle{ position: absolute; border-radius: 50%; background: radial-gradient( rgba(0,255,127,0.95), rgba(0,255,127,0.2) ); box-shadow: 0 0 25px rgba(0,255,127,0.45); animation: particleFloat linear forwards; } @keyframes particleFloat{ from{ transform: translateY(0) translateX(0) scale(0.8); opacity: 0; } 10%{ opacity: 1; } 90%{ opacity: 1; } to{ transform: translateY(-120vh) translateX(80px) scale(1.5); opacity: 0; } } /* ========================================= RESPONSIVO ========================================= */ @media(max-width:980px){ .auth-container{ grid-template-columns: 1fr; } .auth-side{ display: none; } .auth-content{ min-height: 100vh; } .auth-box{ max-width: 100%; } } /* mobile */ @media(max-width:600px){ .particles{ display: none; } .auth-content{ padding: 1rem; } .auth-box{ padding: 2rem; border-radius: 26px; } .auth-header h1{ font-size: 2rem; } } /* ========================================= ANIMAÇÃO ========================================= */ .auth-box{ animation: authAppear 0.7s ease; } @keyframes authAppear{ from{ opacity: 0; transform: translateY(45px); } to{ opacity: 1; transform: translateY(0px); } }
+
 /* =========================================
    SHOW PASSWORD
 ========================================= */
@@ -709,9 +286,7 @@ input:focus,
    TOGGLE PASSWORD
 ========================================= */
 
-/* atualizado */
 .toggle-password{
-
     position: absolute;
 
     top: 50%;
@@ -719,8 +294,8 @@ input:focus,
 
     translate: 0 -50%;
 
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
 
     border: none;
     background: transparent;
@@ -735,29 +310,125 @@ input:focus,
 
     z-index: 20;
 
-    transition: 0.3s;
+    transition: all 0.3s ease;
 }
 
-/* atualizado */
 .toggle-password:hover{
+    color: #00ff7f;
 
-    color: #4f46e5;
-
-    transform: scale(1.08);
+    transform:
+        translateY(-50%)
+        scale(1.08);
 }
 
-/* atualizado */
 .toggle-password i{
-
     font-size: 1rem;
 }
 
-/* atualizado */
+/* =========================================
+   INPUTS / FORM
+========================================= */
+
 .form-group{
+    position: relative;
+
     animation: fadeInput 0.5s ease;
 }
 
-/* atualizado */
+.input-wrapper{
+    position: relative;
+}
+
+.input-wrapper input{
+    width: 100%;
+
+    height: 62px;
+
+    padding:
+        0 55px 0 55px;
+
+    background: rgba(255,255,255,0.04);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    border-radius: 18px;
+
+    color: white;
+
+    font-size: 1rem;
+
+    transition: all 0.3s ease;
+
+    backdrop-filter: blur(10px);
+}
+
+.input-wrapper input::placeholder{
+    color: #94a3b8;
+}
+
+.input-wrapper input:focus{
+    outline: none;
+
+    border-color: rgba(0,255,127,0.45);
+
+    box-shadow:
+        0 0 0 4px rgba(0,255,127,0.08),
+        0 10px 30px rgba(0,255,127,0.08);
+
+    background: rgba(255,255,255,0.06);
+}
+
+.input-icon{
+    position: absolute;
+
+    top: 50%;
+    left: 18px;
+
+    transform: translateY(-50%);
+
+    width: 20px;
+    height: 20px;
+
+    color: #00ff7f;
+
+    z-index: 10;
+}
+
+.form-select{
+    width: 100%;
+
+    height: 62px;
+
+    padding: 0 18px;
+
+    border-radius: 18px;
+
+    background: rgba(255,255,255,0.04);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    color: white;
+
+    font-size: 1rem;
+
+    backdrop-filter: blur(10px);
+
+    transition: all 0.3s ease;
+}
+
+.form-select:focus{
+    outline: none;
+
+    border-color: rgba(0,255,127,0.45);
+
+    box-shadow:
+        0 0 0 4px rgba(0,255,127,0.08);
+}
+
+/* =========================================
+   INPUT ANIMATION
+========================================= */
+
 @keyframes fadeInput{
 
     from{
@@ -776,22 +447,17 @@ input:focus,
    SHAKE ERROR
 ========================================= */
 
-/* atualizado */
 .shake-error{
-
     animation: shakeX 0.35s;
 }
 
-/* atualizado */
 .shake-border{
-
     border-color: #ef4444 !important;
 
     box-shadow:
         0 0 0 4px rgba(239,68,68,0.12);
 }
 
-/* atualizado */
 @keyframes shakeX{
 
     0%{
@@ -816,18 +482,19 @@ input:focus,
 
 }
 
-/* atualizado */
+/* =========================================
+   HOVER INPUTS
+========================================= */
+
 input:hover,
 .form-select:hover{
-    border-color: #c7d2fe;
+    border-color: rgba(0,255,127,0.25);
 }
-
 
 /* =========================================
    AUTH APPEAR
 ========================================= */
 
-/* atualizado */
 @keyframes authAppear{
 
     from{
@@ -862,22 +529,125 @@ input:hover,
    REGISTER PAGE
 ========================================= */
 
-/* atualizado */
 .register-page .auth-container{
-
     display: flex;
 
     justify-content: center;
-
     align-items: center;
 
-    max-width: 1000px;
+    width: 100%;
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 2rem;
 }
 
-/* atualizado */
 .register-page .auth-box{
-
-    max-width: 520px;
-
     width: 100%;
+    max-width: 580px;
+}
+
+/* =========================================
+   RESPONSIVIDADE MELHORADA
+========================================= */
+
+@media(max-width: 1100px){
+
+    .auth-container{
+        width: 100%;
+        max-width: 100%;
+        padding: 1.5rem;
+    }
+
+    .auth-content{
+        width: 100%;
+    }
+
+    .auth-box{
+        width: 100%;
+        max-width: 650px;
+
+        margin: auto;
+    }
+
+}
+
+@media(max-width: 768px){
+
+    .auth-content{
+        padding: 1.5rem;
+    }
+
+    .auth-box{
+        width: 100%;
+        max-width: 100%;
+
+        padding: 2.2rem;
+
+        border-radius: 28px;
+    }
+
+    .input-wrapper input,
+    .form-select{
+        height: 58px;
+        font-size: 0.95rem;
+    }
+
+}
+
+@media(max-width: 520px){
+
+    .auth-content{
+        padding: 1rem;
+    }
+
+    .auth-box{
+        padding: 1.8rem;
+
+        border-radius: 24px;
+    }
+
+    .auth-header h1{
+        font-size: 2rem;
+    }
+
+    .subtitle{
+        font-size: 0.95rem;
+    }
+
+    .input-wrapper input,
+    .form-select{
+        height: 56px;
+
+        padding-left: 50px;
+    }
+
+    .toggle-password{
+        right: 12px;
+    }
+
+    .btn{
+        width: 100%;
+    }
+
+}
+
+@media(max-width: 380px){
+
+    .auth-box{
+        padding: 1.4rem;
+    }
+
+    .auth-header h1{
+        font-size: 1.7rem;
+    }
+
+    .input-wrapper input,
+    .form-select{
+        height: 54px;
+
+        font-size: 0.9rem;
+    }
+
 }
